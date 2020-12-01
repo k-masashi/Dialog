@@ -11,7 +11,7 @@ class Config:
     vocab_size = 32000
     num_head = 8
     d_model = 768
-    num_layer = 6
+    num_layer = 2
     d_ff = 2048
     drop_rate = 0.1
     max_grad_norm = 1.0
