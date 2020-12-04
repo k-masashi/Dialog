@@ -28,7 +28,7 @@ class Config:
 
     load = False
     # FIXME: if you use original data, change flag of this
-    use_pickle = false
+    use_pickle = true
 
     model_name = 'cl-tohoku/bert-base-japanese-whole-word-masking'
 
