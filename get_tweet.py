@@ -1,3 +1,5 @@
+# coding: utf-8
+
 import datetime
 import json
 import os
@@ -76,7 +78,7 @@ def get_tweet(res, start_time):
             try:
                 req = session.get(url, params={'id': id_list, 'count': len(tweets)})
             except SocketError as e:
-                print('ソケットエラー errno=', e.errno)
+                print('socket errno=', e.errno)
                 if unavailable_cnt > 10:
                     raise
 
@@ -280,7 +282,6 @@ if __name__ == '__main__':
             raise Exception('Twitter API error %d' % res.status_code)
 
         start_time, count, tweets = get_tweet(res, start_time)
-
         fn = f'{save_dir}/tweet_data_{args[1]}_{DIALOG_CNT}.txt'
 
         with open(fn, 'a', encoding='utf-8') as f:

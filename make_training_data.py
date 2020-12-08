@@ -31,31 +31,22 @@ if __name__ == '__main__':
                 lines = f.readlines()
                 for i in tqdm(range(0, len(lines) - (num_uttr - 1), num_uttr + 1),desc=f'File({fn.split("/")[-1]}): {f_num}/{num_files}'):
                     sentences = list(lines[i:i + num_uttr])
-                    print(sentences)
-                    print(sentences[i])
-                    print(len(sentences[i]))
                     # Hard-Coding Filter
                     if any(map(lambda x: len(x) <= min_size, sentences)):
-                        print('Continue1')
                         continue
                     if any(map(lambda x: 'ニュース' in x, sentences)):
-                        print('Continue2')
                         continue
                     if any(map(lambda x: x.startswith('。'), sentences)):
-                        print('Continue3')
                         continue
                     utterances = list(map(tokenizer.encode, sentences))
                     if all(map(lambda x: len(x) <= max_size, utterances)):
                         if num_uttr > num_use_uttr:
-                            print('こっちはいったA')
                             for j in range(num_uttr - (num_use_uttr - 1)):
                                 for s in sentences[j:j + num_use_uttr]:
                                     ff.write(f'{s}')
                                 ff.write('\n')
                                 use += 1
                         else:
-                            print('こっちはいったB')
-                            print(sentences)
                             for s in sentences:
                                 ff.write(f'{s}')
                             ff.write('\n')
