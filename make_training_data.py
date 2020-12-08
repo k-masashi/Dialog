@@ -33,7 +33,7 @@ if __name__ == '__main__':
                     sentences = list(lines[i:i + num_uttr])
                     print(sentences)
                     print(sentences[i])
-                    print(len(sentence[i]))
+                    print(len(sentences[i]))
                     # Hard-Coding Filter
                     if any(map(lambda x: len(x) <= min_size, sentences)):
                         print('Continue1')
