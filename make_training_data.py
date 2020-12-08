@@ -32,7 +32,7 @@ if __name__ == '__main__':
                 for i in tqdm(range(0, len(lines) - (num_uttr - 1), num_uttr + 1),desc=f'File({fn.split("/")[-1]}): {f_num}/{num_files}'):
                     sentences = list(lines[i:i + num_uttr])
                     print(sentences)
-                    print(sentence[i])
+                    print(sentences[i])
                     print(len(sentence[i]))
                     # Hard-Coding Filter
                     if any(map(lambda x: len(x) <= min_size, sentences)):
