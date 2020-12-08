@@ -22,12 +22,12 @@ if __name__ == '__main__':
     not_use = 0
     tokenizer = BertJapaneseTokenizer.from_pretrained('cl-tohoku/bert-base-japanese-whole-word-masking')
     file_name = f'training_data'
-    with open(f'./data/{file_name}.txt', 'a', encoding='utf-8', errors='ignore') as ff:
+    with open(f'./data/{file_name}.txt', 'a', encoding='utf-8') as ff:
         files = glob.glob('./data/tweet_data_*.txt')
         num_files = len(files)
         for f_num, fn in enumerate(files, start=1):
             num_uttr = int(fn.split('/')[-1].split('.')[0].split('_')[-1]) + 1
-            with open(fn, 'r', encoding='utf-8', errors='ignore') as f:
+            with open(fn, 'r', encoding='utf-8') as f:
                 lines = f.readlines()
                 for i in tqdm(range(0, len(lines) - (num_uttr - 1), num_uttr + 1),
                               desc=f'File({fn.split("/")[-1]}): {f_num}/{num_files}'):
