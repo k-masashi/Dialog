@@ -33,10 +33,13 @@ if __name__ == '__main__':
                     sentences = list(lines[i:i + num_uttr])
                     # Hard-Coding Filter
                     if any(map(lambda x: len(x) <= min_size, sentences)):
+                        print('Continue1')
                         continue
                     if any(map(lambda x: 'ニュース' in x, sentences)):
+                        print('Continue2')
                         continue
                     if any(map(lambda x: x.startswith('。'), sentences)):
+                        print('Continue3')
                         continue
                     utterances = list(map(tokenizer.encode, sentences))
                     if all(map(lambda x: len(x) <= max_size, utterances)):
