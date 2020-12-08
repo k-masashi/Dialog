@@ -31,9 +31,9 @@ if __name__ == '__main__':
                 lines = f.readlines()
                 for i in tqdm(range(0, len(lines) - (num_uttr - 1), num_uttr + 1),desc=f'File({fn.split("/")[-1]}): {f_num}/{num_files}'):
                     sentences = list(lines[i:i + num_uttr])
+                    print(sentences)
                     # Hard-Coding Filter
                     if any(map(lambda x: len(x) <= min_size, sentences)):
-                        print(x)
                         print('Continue1')
                         continue
                     if any(map(lambda x: 'ニュース' in x, sentences)):
